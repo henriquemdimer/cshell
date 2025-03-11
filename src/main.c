@@ -41,14 +41,14 @@ int main()
 
         int pid;
         if (strcmp(args[0], "exit") == 0)
-        {
             exit(0);
-        }
         else if (strcmp(args[0], "cd") == 0)
         {
             char *path = args[1];
-			if (path == NULL) chdir(getenv("HOME"));
-			else chdir(path);
+            if (path == NULL)
+                chdir(getenv("HOME"));
+            else
+                chdir(path);
         }
         else
         {
@@ -60,17 +60,13 @@ int main()
                     exit(1);
                 }
                 else
-                {
                     exit(0);
-                }
             }
             else
-            {
                 waitpid(pid, 0, 0);
-            }
         }
 
-		memset(args, 0, sizeof(args));
+        memset(args, 0, sizeof(args));
     }
 
     return 0;
